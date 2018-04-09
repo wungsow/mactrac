@@ -1,10 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  entry: ['babel-polyfill', './lib/components/Index.js'],
+  entry: {
+    vendor: ['react', 'react-dom', 'axios', 'prop-types'],
+    app: ['babel-polyfill', './lib/components/Index.js']
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -12,9 +16,27 @@ const config = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-      }
+      },
+      { test: /\.ejs$/, loader: 'ejs-loader?variable=data' }
     ]
-  }
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Custom template using Handlebars',
+      template: path.resolve(__dirname, 'views', 'index.ejs')
+    })
+  ]
 };
 
 module.exports = config;
