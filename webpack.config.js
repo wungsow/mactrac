@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: {
-    vendor: ['react', 'react-dom', 'axios', 'prop-types'],
+    vendor: [ 'react', 'react-dom', 'axios', 'prop-types'],
     app: ['babel-polyfill', './lib/components/Index.js']
   },
   output: {
@@ -34,7 +34,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Custom template using Handlebars',
-      template: path.resolve(__dirname, 'views', 'index.ejs')
+      template: path.resolve(__dirname, 'views', 'index.ejs'),
+      inject: false
     })
   ]
 };
