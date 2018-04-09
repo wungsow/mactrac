@@ -1,9 +1,8 @@
-.container {
-  padding: 10px;
+td {
+  text-align: right;
 }
 
-.macros {
-  display: flex;
-  justify-content: space-between;
+td:first-child {
+  text-align: left
 }
 
