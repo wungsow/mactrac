@@ -1,0 +1,28 @@
+.container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+  }
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.food {
+  flex: 1
+}
+.inputRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.inputRow label {
+  margin-right: 10px;
+}
+.inputRow input {
+  flex: 1;
+}
+.inputRow span {
+  margin-left: 10px;
+}
