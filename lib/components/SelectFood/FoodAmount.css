@@ -12,17 +12,3 @@
 .food {
   flex: 1
 }
-.inputRow {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.inputRow label {
-  margin-right: 10px;
-}
-.inputRow input {
-  flex: 1;
-}
-.inputRow span {
-  margin-left: 10px;
-}
